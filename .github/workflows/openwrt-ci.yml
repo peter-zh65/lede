@@ -5,16 +5,18 @@
 # Copyright (C) 2019 KFERMercer <KFER.Mercer@gmail.com>
 # 
 # <https://github.com/KFERMercer/OpenWrt-CI>
-# 
+#
 
-name: OpenWrt-CII
+name: OpenWrt-CI
 
 on:
-  schedule:
-    - cron: 0 20 * * *
   push:
     branches: 
       - master
+  # schedule:
+  #   - cron: 0 20 * * *
+  # release:
+  #   types: [published]
 
 jobs:
 
@@ -103,7 +105,7 @@ jobs:
           CONFIG_TARGET_x86_64_Generic=y
           EOF
 
-          固件压缩:
+          # 固件压缩:
           cat >> .config <<EOF
           CONFIG_TARGET_IMAGES_GZIP=y
           EOF
